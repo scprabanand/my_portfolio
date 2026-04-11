@@ -24,4 +24,11 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .hide-scrollbars {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbars::-webkit-scrollbar {
+    display: none;
+  }
 }
