@@ -1,4 +1,4 @@
 export { default as Navbar } from './Navbar';
 export { default as ScrollToTop } from './ScrollToTop';
-export { Footer } from './Stubs';
+export { default as Footer } from './Footer';
 

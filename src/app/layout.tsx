@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "../styles/globals.css";
-import { Navbar, ScrollToTop } from "@/components/layout";
+import { Navbar, ScrollToTop, Footer } from "@/components/layout";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -30,6 +30,7 @@ export default function RootLayout({
       <body className={`${playfair.variable} ${dmSans.variable} font-body antialiased bg-cream text-navy min-h-screen`}>
         <Navbar />
         {children}
+        <Footer />
         <ScrollToTop />
       </body>
     </html>

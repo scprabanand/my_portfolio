@@ -27,8 +27,7 @@ export default function Home() {
       <Skills />
       <Contact />
       
-      {/* Footer or other sections could go here */}
-      <div className="h-[20vh]" /> {/* Spacer at the bottom */}
+      {/* Footer is rendered globally in layout.tsx */}
     </main>
   );
 }
