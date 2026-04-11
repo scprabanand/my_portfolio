@@ -31,7 +31,7 @@ export const Footer = () => {
             <div className="absolute bottom-0 left-0 w-full h-1 bg-gold opacity-30" />
             
             <div className="container mx-auto px-6 max-w-7xl relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
                     
                     {/* Left Column: Brand & Social */}
                     <div className="space-y-6">
@@ -64,8 +64,8 @@ export const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Center Column: Quick Links */}
-                    <div className="lg:pl-12">
+                    {/* Right Column: Quick Links */}
+                    <div className="md:pl-12">
                         <h3 className="font-heading text-lg font-bold text-white mb-6 uppercase tracking-widest text-[11px]">Quick Navigation</h3>
                         <ul className="grid grid-cols-2 gap-x-8 gap-y-3">
                             {navLinks.map((link) => (
@@ -80,25 +80,6 @@ export const Footer = () => {
                                 </li>
                             ))}
                         </ul>
-                    </div>
-
-                    {/* Right Column: Fast Contact */}
-                    <div className="lg:pl-12">
-                        <h3 className="font-heading text-lg font-bold text-white mb-6 uppercase tracking-widest text-[11px]">Direct Contact</h3>
-                        <div className="space-y-4">
-                            <a href="mailto:scprabanand@gmail.com" className="flex items-center gap-3 text-slate-400 hover:text-gold transition-colors group">
-                                <div className="p-2 bg-white/5 rounded-lg border border-white/10 text-gold">
-                                    <Mail size={16} />
-                                </div>
-                                <span className="font-body text-sm">scprabanand@gmail.com</span>
-                            </a>
-                            <a href="tel:+919791456452" className="flex items-center gap-3 text-slate-400 hover:text-gold transition-colors group">
-                                <div className="p-2 bg-white/5 rounded-lg border border-white/10 text-gold">
-                                    <Phone size={16} />
-                                </div>
-                                <span className="font-body text-sm">+91 97914 56452</span>
-                            </a>
-                        </div>
                     </div>
 
                 </div>

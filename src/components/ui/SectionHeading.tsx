@@ -15,7 +15,8 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   title, 
   subtitle, 
   alignment = 'center',
-  light = false
+  light = false,
+  id
 }) => {
   const isCenter = alignment === 'center';
   const textColor = light ? 'text-cream' : 'text-navy';

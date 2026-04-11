@@ -71,75 +71,14 @@ export const Contact = () => {
                     alignment="center"
                 />
 
-                <div className="flex flex-col lg:flex-row gap-16 mt-16">
-                    {/* Left Column: Contact Info */}
+                <div className="flex flex-col items-center mt-16">
+                    {/* Centered Inquiry Form */}
                     <motion.div 
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="w-full lg:w-1/2 space-y-10"
-                    >
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                            {[
-                                { icon: Mail, label: "Email", value: "scprabanand@gmail.com", link: "mailto:scprabanand@gmail.com" },
-                                { icon: Phone, label: "Phone", value: "+91 9791456452", link: "tel:+919791456452" },
-                                { icon: MapPin, label: "Address", value: "4/288, Alagar Singam Patti, Dindigul - 624004" },
-                                { icon: Languages, label: "Languages", value: "English, Tamil" }
-                            ].map((item, i) => {
-                                const Icon = item.icon;
-                                return (
-                                    <div key={i} className="group p-6 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
-                                        <div className="flex items-center gap-4 mb-3">
-                                            <div className="p-2.5 bg-gold/10 text-gold rounded-xl group-hover:scale-110 transition-transform duration-300">
-                                                <Icon size={20} />
-                                            </div>
-                                            <span className="font-heading font-black text-xs uppercase tracking-widest text-slate-400">{item.label}</span>
-                                        </div>
-                                        {item.link ? (
-                                            <a href={item.link} className="font-body text-navy hover:text-gold font-bold transition-colors">
-                                                {item.value}
-                                            </a>
-                                        ) : (
-                                            <p className="font-body text-navy font-bold">{item.value}</p>
-                                        )}
-                                    </div>
-                                );
-                            })}
-                        </div>
-
-                        <div>
-                            <h4 className="font-heading font-bold text-navy mb-4">Follow Me</h4>
-                            <div className="flex gap-4">
-                                {[
-                                    { icon: FaLinkedin, link: "https://linkedin.com/in/scprabanand", color: "hover:bg-[#0077b5]" },
-                                    { icon: FaGithub, link: "https://github.com/scprabanand", color: "hover:bg-[#333]" },
-                                    { icon: SiGooglescholar, link: "https://scholar.google.com/citations?user=your_id", color: "hover:bg-[#4285f4]" }
-                                ].map((social, i) => {
-                                    const Icon = social.icon;
-                                    return (
-                                        <a 
-                                            key={i}
-                                            href={social.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={`w-12 h-12 flex items-center justify-center rounded-xl bg-slate-100 text-slate-600 transition-all duration-300 hover:text-white ${social.color}`}
-                                        >
-                                            <Icon size={24} />
-                                        </a>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Right Column: Contact Form */}
-                    <motion.div 
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="w-full lg:w-1/2"
+                        className="w-full max-w-2xl"
                     >
                         {submitted ? (
                             <motion.div 
@@ -151,7 +90,7 @@ export const Contact = () => {
                                     <CheckCircle2 size={48} />
                                 </div>
                                 <h3 className="font-heading text-3xl font-bold text-navy mb-4">Thank You!</h3>
-                                <p className="font-body text-slate-600 max-w-sm">Your message has been received. I will get back to you as soon as possible.</p>
+                                <p className="font-body text-slate-600 max-w-sm">Your inquiry has been received. I will get back to you as soon as possible.</p>
                                 <button 
                                     onClick={() => setSubmitted(false)}
                                     className="mt-8 font-body font-bold text-gold hover:underline"
@@ -182,7 +121,7 @@ export const Contact = () => {
                                     type="submit"
                                     className="w-full py-4 bg-navy text-white font-heading font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-gold transition-all duration-300 group shadow-lg shadow-navy/20"
                                 >
-                                    Send Message 
+                                    Submit Inquiry 
                                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                                 </button>
                             </form>
@@ -190,23 +129,7 @@ export const Contact = () => {
                     </motion.div>
                 </div>
 
-                {/* Google Maps Embed */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mt-20 border-4 border-white shadow-2xl rounded-3xl overflow-hidden h-[400px] w-full"
-                >
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m3!1d125585.50157962804!2d77.92556550000002!3d10.366472000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b000a6e87f8674d%3A0x6bba462e7f33d026!2sDindigul%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1712822452331!5m2!1sen!2sin"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                    ></iframe>
-                </motion.div>
+                {/* Map removed for privacy */}
             </div>
         </section>
     );
