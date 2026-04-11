@@ -193,7 +193,7 @@ const Hero = () => {
                {/* Actual Image Placeholder */}
                <div className="w-full h-full relative">
                   <Image
-                    src="/portfolio/images/profile.jpg"
+                    src="/portfolio/images/IMG_20260410_111837.jpg.jpeg"
                     alt="Prabanand S C"
                     fill
                     priority
