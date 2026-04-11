@@ -1,84 +1,131 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Lightbulb, FileCheck } from 'lucide-react';
-import { profileData } from '@/data/profile';
+import { Gavel, Copy, Check, Calendar, ShieldCheck, FileText } from 'lucide-react';
 import { SectionHeading } from '@/components/ui';
 
-const Patents = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+const patentsData = [
+  {
+    title: "Firewall Integration with Real-Time Monitoring",
+    applicationNo: "202441015761",
+    date: "06 Mar 2024",
+    status: "Filed",
+    icon: ShieldCheck
+  },
+  {
+    title: "Vision-Based Transcriber for Visually Impaired",
+    applicationNo: "202241074768",
+    date: "23 Dec 2022",
+    status: "Filed",
+    icon: FileText
+  },
+  {
+    title: "Attendance Monitoring System with Face Recognition",
+    applicationNo: "202241007691",
+    date: "14 Dec 2022",
+    status: "Filed",
+    icon: FileText
+  }
+];
+
+const PatentCard = ({ patent, index }: { patent: typeof patentsData[0], index: number }) => {
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(patent.applicationNo);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.95, y: 30 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-  };
+  const Icon = patent.icon;
 
   return (
-    <section id="patents" className="py-24 bg-navy text-cream relative overflow-hidden">
-      {/* Background Decorative Pattern */}
+    <motion.div
+      initial={{ opacity: 0, rotateY: -90, x: -50 }}
+      whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" as const }}
+      className="min-w-[85%] md:min-w-0 flex-1 snap-center relative bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden group perspective-1000"
+    >
+      {/* Patent Watermark Stamp */}
+      <div className="absolute -right-8 -bottom-8 opacity-[0.03] rotate-[-25deg] pointer-events-none select-none">
+        <span className="font-heading font-black text-8xl md:text-9xl text-navy">
+          PATENT
+        </span>
+      </div>
+
+      <div className="relative z-10">
+        {/* Status & Icon */}
+        <div className="flex justify-between items-start mb-6">
+            <div className="p-3 bg-gold/10 text-gold rounded-xl border border-gold/10 group-hover:scale-110 transition-transform duration-500">
+                <Icon size={32} />
+            </div>
+            <span className="px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-black uppercase tracking-widest rounded-full border border-blue-100">
+                {patent.status}
+            </span>
+        </div>
+
+        {/* Title */}
+        <h3 className="font-heading text-2xl font-bold text-navy leading-tight mb-8 group-hover:text-gold transition-colors duration-300 min-h-[4rem]">
+            {patent.title}
+        </h3>
+
+        {/* Details Area */}
+        <div className="space-y-4 pt-6 border-t border-slate-50">
+            {/* App No with Clipboard */}
+            <div className="flex flex-col gap-1">
+                <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Application Number</span>
+                <div className="flex items-center justify-between bg-slate-50 p-3 rounded-lg border border-slate-100 group-hover:border-gold/20 transition-colors duration-300">
+                    <span className="font-mono text-sm font-bold text-navy">{patent.applicationNo}</span>
+                    <button 
+                        onClick={copyToClipboard}
+                        className="p-1.5 hover:bg-white rounded-md transition-colors duration-200"
+                        title="Copy to clipboard"
+                    >
+                        {copied ? <Check size={14} className="text-green-500" /> : <Copy size={14} className="text-slate-400" />}
+                    </button>
+                </div>
+            </div>
+
+            {/* Date */}
+            <div className="flex items-center gap-2 text-slate-500">
+                <Calendar size={14} className="text-gold" />
+                <span className="text-sm font-semibold font-body uppercase tracking-tight">Filing Date: {patent.date}</span>
+            </div>
+        </div>
+
+      </div>
+    </motion.div>
+  );
+};
+
+export const Patents = () => {
+  return (
+    <section id="patents" className="py-24 bg-[#FAF8F5]/80 relative overflow-hidden">
+      
+      {/* Subtle Document texturepattern (diagonal lines) */}
       <div 
-        className="absolute inset-0 opacity-5" 
-        style={{ backgroundImage: 'linear-gradient(#C9A84C 2px, transparent 2px), linear-gradient(90deg, #C9A84C 2px, transparent 2px)', backgroundSize: '100px 100px' }} 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `repeating-linear-gradient(-45deg, #0A1628 0px, #0A1628 1px, transparent 1px, transparent 20px)`
+        }}
       />
 
-      <div className="container mx-auto px-6 max-w-6xl relative z-10">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        
         <SectionHeading 
-          title="Patents" 
-          subtitle="Innovative solutions legally recognized and published."
+          title="Patents Filed" 
+          subtitle="Innovation & Intellectual Property"
           alignment="center"
-          light={true}
         />
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12"
-        >
-          {profileData.patents.map((patent, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ y: -10 }}
-              className="bg-slate border border-white/10 rounded-2xl p-8 flex flex-col h-full relative group transition-all duration-300"
-            >
-              {/* Corner Accent */}
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity duration-300">
-                <Lightbulb size={60} className="text-gold rotate-12" />
-              </div>
-
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-gold/10 rounded-xl border border-gold/20 mb-6 shrink-0 relative z-10">
-                <FileCheck className="text-gold" size={24} />
-              </div>
-
-              <h3 className="font-heading text-xl md:text-2xl font-bold text-white mb-6 flex-1 leading-snug relative z-10 pr-4">
-                {patent.title}
-              </h3>
-
-              <div className="border-t border-white/10 pt-5 mt-auto relative z-10">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <span className="block font-body text-xs text-cream/50 uppercase tracking-wider mb-1">App No.</span>
-                    <span className="font-body text-sm font-semibold text-gold font-mono">{patent.applicationNo}</span>
-                  </div>
-                  <div>
-                    <span className="block font-body text-xs text-cream/50 uppercase tracking-wider mb-1">Date</span>
-                    <span className="font-body text-sm font-semibold text-white">{patent.date}</span>
-                  </div>
-                </div>
-                <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1 bg-white/5 rounded-md text-xs font-semibold text-cream/80 uppercase tracking-wider">
-                  <span className="w-2 h-2 rounded-full bg-green-400" />
-                  {patent.status}
-                </div>
-              </div>
-            </motion.div>
+        <div className="flex overflow-x-auto pb-8 md:pb-0 md:flex-row gap-8 snap-x snap-mandatory hide-scrollbars mt-12">
+          {patentsData.map((patent, index) => (
+            <PatentCard key={patent.applicationNo} patent={patent} index={index} />
           ))}
-        </motion.div>
+        </div>
+
       </div>
     </section>
   );
