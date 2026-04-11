@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { ChevronDown, Mail, FileText } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
@@ -12,13 +12,21 @@ import { profileData } from '@/data/profile';
 
 const Hero = () => {
   const [init, setInit] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mediaQuery.addEventListener("change", handler);
+
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
     }).then(() => {
       setInit(true);
     });
+    return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
   const containerVariants = {
@@ -26,14 +34,14 @@ const Hero = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: shouldReduceMotion ? 0 : 0.15,
         delayChildren: 0.3,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
   };
 
@@ -78,7 +86,7 @@ const Hero = () => {
               },
               number: {
                 density: { enable: true, area: 800 },
-                value: 40,
+                value: isMobile ? 20 : 40,
               },
               opacity: { value: 0.4 },
               shape: { type: "circle" },
@@ -185,11 +193,14 @@ const Hero = () => {
                {/* Actual Image Placeholder */}
                <div className="w-full h-full relative">
                   <Image
-                    src="/portfolio/images/profile.jpg" // Note the /portfolio prefix for basepath compatibility
+                    src="/portfolio/images/profile.jpg"
                     alt="Prabanand S C"
                     fill
+                    priority
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                     unoptimized={true}
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
                     onError={(e) => {
                       // fallback for placeholder
                       const target = e.target as HTMLImageElement;
