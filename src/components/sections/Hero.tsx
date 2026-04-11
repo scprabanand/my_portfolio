@@ -85,7 +85,7 @@ const Hero = () => {
                 straight: false,
               },
               number: {
-                density: { enable: true, area: 800 },
+                density: { enable: true },
                 value: isMobile ? 20 : 40,
               },
               opacity: { value: 0.4 },

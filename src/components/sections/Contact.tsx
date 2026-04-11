@@ -1,21 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
-    Mail, 
-    Phone, 
-    MapPin, 
-    Languages, 
-    Send, 
     CheckCircle2, 
-    ArrowRight,
-    Linkedin,
-    Github,
-    GraduationCap
+    ArrowRight
 } from 'lucide-react';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
-import { SiGooglescholar } from 'react-icons/si';
 import { SectionHeading } from '@/components/ui';
 
 const FloatingInput = ({ label, name, type = "text", required = true }: { label: string, name: string, type?: string, required?: boolean }) => {

@@ -3,12 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-    Mail, 
-    Phone, 
     Heart, 
-    Linkedin, 
-    Github, 
-    GraduationCap,
     ArrowUpRight
 } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';

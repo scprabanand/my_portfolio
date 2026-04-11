@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, ExternalLink, Calendar, Search } from 'lucide-react';
+import { Award, Calendar } from 'lucide-react';
 import { SectionHeading } from '@/components/ui';
 
 interface Certification {

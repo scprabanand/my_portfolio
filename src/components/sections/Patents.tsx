@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Gavel, Copy, Check, Calendar, ShieldCheck, FileText } from 'lucide-react';
+import { Copy, Check, Calendar, ShieldCheck, FileText } from 'lucide-react';
 import { SectionHeading } from '@/components/ui';
 
 const patentsData = [

@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Building2, Landmark, ShieldCheck, Camera, Database, BarChart3, TrendingUp } from 'lucide-react';
+import { Building2, Landmark, ShieldCheck, TrendingUp } from 'lucide-react';
 import { SectionHeading } from '@/components/ui';
 
 const consultancyProjects = [

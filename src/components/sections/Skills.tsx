@@ -9,9 +9,7 @@ import {
     Cpu, 
     Database, 
     Cloud, 
-    Award, 
-    CheckCircle2, 
-    Trophy
+    Award
 } from 'lucide-react';
 import { SectionHeading } from '@/components/ui';
 
@@ -88,15 +86,6 @@ const SkillTag = ({ name, delay }: { name: string; delay: number }) => {
 };
 
 export const Skills = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
 
   return (
     <section id="skills" className="py-24 bg-[#0A1628] relative overflow-hidden">
