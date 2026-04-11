@@ -71,6 +71,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${playfair.variable} ${dmSans.variable} font-body antialiased bg-cream text-navy min-h-screen`}>
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

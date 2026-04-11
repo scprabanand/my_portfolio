@@ -15,7 +15,7 @@ const Contact = dynamic(() => import('@/components/sections').then(mod => mod.Co
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <main id="main-content" tabIndex={-1} className="flex min-h-screen flex-col">
       <Hero />
       <About />
       <Education />

@@ -21,10 +21,12 @@ import { SectionHeading } from '@/components/ui';
 const FloatingInput = ({ label, name, type = "text", required = true }: { label: string, name: string, type?: string, required?: boolean }) => {
     const [focused, setFocused] = useState(false);
     const [value, setValue] = useState("");
+    const inputId = `contact-${name}`;
 
     return (
         <div className="relative mb-6">
             <motion.label
+                htmlFor={inputId}
                 initial={false}
                 animate={{
                     y: (focused || value) ? -28 : 0,
@@ -36,9 +38,11 @@ const FloatingInput = ({ label, name, type = "text", required = true }: { label:
                 {label}
             </motion.label>
             <input
+                id={inputId}
                 type={type}
                 name={name}
                 required={required}
+                aria-required={required}
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
                 onChange={(e) => setValue(e.target.value)}
