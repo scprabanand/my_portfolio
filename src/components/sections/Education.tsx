@@ -1,93 +1,81 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { GraduationCap, Calendar, MapPin, Target } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { GraduationCap, Building2, BookText, ChevronDown } from 'lucide-react';
 import { profileData } from '@/data/profile';
-import { SectionHeading } from '@/components/ui';
+import { SectionHeading, Timeline } from '@/components/ui';
 
-const Education = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
+const ThesisDetail = ({ thesis }: { thesis: string }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <section id="education" className="py-24 relative bg-navy text-cream">
-      {/* Subtle Background Pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]" 
-        style={{ backgroundImage: 'radial-gradient(#C9A84C 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
-      />
+    <div className="mt-4 w-full">
+      <button 
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="flex items-center gap-2 px-4 py-2 bg-gold/10 hover:bg-gold/20 text-gold rounded-md transition-colors duration-300 w-full md:w-auto"
+      >
+        <BookText size={16} />
+        <span className="font-body font-semibold text-sm">Ph.D. Thesis Detail</span>
+        <ChevronDown 
+          size={16} 
+          className={`transform transition-transform duration-300 ml-auto ${isExpanded ? 'rotate-180' : ''}`} 
+        />
+      </button>
+      
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+            animate={{ opacity: 1, height: 'auto', marginTop: 12 }}
+            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="p-4 bg-gold/5 border border-gold/20 rounded-lg text-left">
+              <p className="font-body text-navy/80 italic text-sm md:text-base leading-relaxed">
+                "{thesis.replace('Thesis: ', '').replace(/'/g, "")}"
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 
-      <div className="container mx-auto px-6 max-w-5xl relative z-10">
+const Education = () => {
+  // Map profileData to TimelineItems
+  const educationItems = profileData.education.map((edu, index) => {
+    // Add custom icons per degree type
+    let Icon = Building2;
+    if (edu.degree.includes('Ph.D')) Icon = GraduationCap;
+    else if (edu.degree.includes('M.Tech')) Icon = BookText;
+
+    return {
+      year: edu.year || "N/A",
+      title: edu.degree,
+      institution: edu.institution,
+      icon: <Icon size={18} />,
+      badge: edu.score ? `Score: ${edu.score}` : undefined,
+      description: edu.details ? <ThesisDetail thesis={edu.details} /> : undefined
+    };
+  });
+
+  return (
+    <section id="education" className="py-24 relative bg-white overflow-hidden">
+      {/* Very faint background geometric element */}
+      <div className="absolute top-20 right-[-10%] w-[40%] h-[40%] rounded-full bg-slate-50/50  pointer-events-none" />
+      
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <SectionHeading 
           title="Education" 
-          subtitle="Academic timeline and foundational qualifications."
+          subtitle="Academic Journey & Foundational Qualifications"
           alignment="center"
-          light={true}
+          light={false}
         />
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="space-y-12"
-        >
-          {profileData.education.map((edu, index) => (
-            <motion.div 
-              key={index} 
-              variants={itemVariants}
-              className="relative pl-8 md:pl-0"
-            >
-              {/* Timeline Line (Mobile uses left line, Desktop uses alternating or standard cards. Let's use a nice card layout) */}
-              <div className="bg-slate p-8 rounded-2xl border border-white/5 shadow-2xl hover:border-gold/30 transition-colors duration-300 relative group overflow-hidden">
-                {/* Glow effect */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full filter blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 relative z-10">
-                  <div className="flex-1">
-                    <h3 className="font-heading text-2xl md:text-3xl font-bold text-gold mb-2">
-                       {edu.degree}
-                    </h3>
-                    <h4 className="font-body text-xl text-white font-medium mb-4 flex items-center gap-2">
-                      <MapPin size={18} className="text-cream/50" />
-                      {edu.institution}
-                    </h4>
-                    
-                    {edu.details && (
-                      <p className="font-body text-cream/80 bg-navy/50 p-4 rounded-lg border-l-2 border-gold flex items-start gap-3 mt-4 text-base italic">
-                        <Target size={20} className="text-gold mt-1 shrink-0" />
-                        "{edu.details.replace('Thesis: ', '')}"
-                      </p>
-                    )}
-                  </div>
-                  
-                  <div className="flex flex-col items-start md:items-end gap-3 shrink-0">
-                    <div className="flex items-center gap-2 px-4 py-2 bg-navy rounded-full border border-gold/20 text-gold font-semibold font-body text-sm">
-                      <Calendar size={16} />
-                      {edu.year}
-                    </div>
-                    {edu.score && (
-                      <div className="px-4 py-2 bg-white/5 rounded-full text-cream/70 font-semibold font-body text-sm">
-                        Score: <span className="text-white">{edu.score}</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        <Timeline items={educationItems} />
       </div>
     </section>
   );

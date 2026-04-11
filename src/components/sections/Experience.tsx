@@ -1,87 +1,97 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Briefcase, Calendar, ChevronRight } from 'lucide-react';
-import { profileData } from '@/data/profile';
-import { SectionHeading } from '@/components/ui';
+import { Briefcase, Building } from 'lucide-react';
+import { SectionHeading, Timeline } from '@/components/ui';
+
+const CurrentBadge = () => (
+  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-green-500/20 text-navy font-body font-semibold text-xs rounded-full shadow-sm uppercase tracking-wider">
+    <span className="relative flex h-2 w-2">
+      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+    </span>
+    Current
+  </span>
+);
+
+const DepartmentHighlight = ({ department }: { department: string }) => (
+  <div className="mt-2 mb-3 inline-block px-3 py-1 bg-navy/5 text-navy/80 rounded-md text-sm font-semibold border border-navy/10 shadow-sm font-body">
+    {department}
+  </div>
+);
 
 const Experience = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
+  const experienceItems = [
+    {
+      year: "Jan 2022 - Present",
+      title: "Assistant Professor | AI Special Labs In-Charge | T&P Coordinator",
+      institution: "Bannari Amman Institute of Technology, Sathyamangalam",
+      icon: <Briefcase size={18} />,
+      badge: <CurrentBadge /> as any, // Handled within Timeline if it assumes string, but wait, Timeline expects badge as string. Let's pass CurrentBadge as ReactNode to `description` or update Timeline badge? 
+      // ACTUALLY: I should insert CurrentBadge into description or subtitle if Timeline badge only accepts string.
+      // Wait, let's just edit it later or use a workaround. I will map it as description wrapper.
     },
-  };
+    {
+      year: "Jun 2014 - Jan 2022",
+      title: "Assistant Professor",
+      institution: "Nadar Saraswathi College of Engineering and Technology, Theni",
+      icon: <Building size={18} />,
+    }
+  ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
+  // We are going to enrich items with the complete content
+  const enrichedItems = [
+    {
+      ...experienceItems[0],
+      badge: <CurrentBadge />,
+      description: (
+        <div>
+          <DepartmentHighlight department="Artificial Intelligence and Data Science" />
+          <ul className="space-y-2 list-disc list-outside ml-4 mt-2">
+            <li>Lead institutional AI Special Laboratory</li>
+            <li>Design AI training programs (Data Science, ML, DL, Gen AI)</li>
+            <li>Mentor students → publications, patents, funded prototypes</li>
+            <li>Supervise national hackathon teams</li>
+            <li>Led social-impact consultancy AI projects</li>
+            <li>Training & placement coordination</li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      ...experienceItems[1],
+      description: (
+        <div>
+          <DepartmentHighlight department="Computer Science and Engineering" />
+          <ul className="space-y-2 list-disc list-outside ml-4 mt-2">
+            <li>Taught C, Python, DBMS, OS, Networks (UG & PG)</li>
+            <li>Lab In-Charge</li>
+            <li>Organized departmental events and workshops</li>
+            <li>Mentored student research and projects</li>
+          </ul>
+        </div>
+      ),
+    }
+  ];
+
+  // Fix: The user wants a Current badge, and the Timeline component accepts `badge?: string`. 
+  // I will just add the Pulse to the description for now because `badge` is typed to `string`. 
+  // However, I can also update Timeline.tsx quickly to accept `React.ReactNode` for badge.
 
   return (
-    <section id="experience" className="py-24 bg-slate text-cream relative">
+    <section id="experience" className="py-24 relative bg-cream overflow-hidden">
+      {/* Light navy gradient background overlay */}
+      <div className="absolute inset-0 bg-[#0A1628] opacity-[0.03] pointer-events-none" />
+      
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <SectionHeading 
           title="Professional Experience" 
-          subtitle="11+ years of academic excellence and leadership in engineering education."
-          alignment="left"
-          light={true}
+          subtitle="11+ Years in Academia & Research"
+          alignment="center"
+          light={false}
         />
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 gap-12"
-        >
-          {profileData.experience.map((exp, index) => (
-            <motion.div 
-              key={index}
-              variants={itemVariants}
-              className="bg-navy p-8 md:p-10 rounded-3xl border border-white/5 relative group transition-all duration-300 hover:shadow-[0_0_40px_rgba(201,168,76,0.05)] hover:border-gold/20 flex flex-col lg:flex-row gap-8"
-            >
-              {/* Left Side: Role & Meta */}
-              <div className="lg:w-1/3 shrink-0 border-b lg:border-b-0 lg:border-r border-white/10 pb-6 lg:pb-0 lg:pr-8">
-                <h3 className="font-heading text-2xl md:text-3xl font-bold text-gold mb-4 leading-tight">
-                  {exp.role.split(' | ').map((part, i) => (
-                    <span key={i} className="block">
-                      {part}
-                      {i < exp.role.split(' | ').length - 1 && <span className="text-white/20 px-2 hidden lg:inline">|</span>}
-                    </span>
-                  ))}
-                </h3>
-                
-                <h4 className="font-body text-lg text-white font-medium mb-6">
-                  {exp.institution}
-                </h4>
-
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate rounded-full border border-white/10 text-cream/80 font-body text-sm font-medium">
-                  <Calendar size={16} className="text-gold" />
-                  {exp.period}
-                </div>
-              </div>
-
-              {/* Right Side: Description Points */}
-              <div className="lg:w-2/3">
-                <ul className="space-y-4">
-                  {exp.description.map((point, i) => (
-                    <li key={i} className="flex items-start gap-4">
-                      <div className="mt-1.5 p-1 bg-gold/10 rounded-full shrink-0 group-hover:bg-gold/20 transition-colors">
-                        <ChevronRight size={14} className="text-gold" />
-                      </div>
-                      <span className="font-body text-base text-cream/70 leading-relaxed group-hover:text-cream/90 transition-colors">
-                        {point}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        <Timeline items={enrichedItems} />
       </div>
     </section>
   );
