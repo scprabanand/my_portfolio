@@ -22,6 +22,8 @@ export default function Home() {
       <Publications />
       <Patents />
       <Achievements />
+      <Consultancy />
+      <Certifications />
       <Skills />
       <Contact />
       
