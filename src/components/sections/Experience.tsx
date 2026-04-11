@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar, ChevronRight } from 'lucide-react';
 import { profileData } from '@/data/profile';
+import { SectionHeading } from '@/components/ui';
 
 const Experience = () => {
   const containerVariants = {
@@ -22,26 +23,12 @@ const Experience = () => {
   return (
     <section id="experience" className="py-24 bg-slate text-cream relative">
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16"
-        >
-          <div>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="h-[2px] w-12 bg-gold" />
-              <Briefcase className="text-gold" size={28} />
-            </div>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-white">
-              Professional Experience
-            </h2>
-          </div>
-          <p className="font-body text-cream/60 max-w-md md:text-right">
-             11+ years of academic excellence and leadership in engineering education.
-          </p>
-        </motion.div>
+        <SectionHeading 
+          title="Professional Experience" 
+          subtitle="11+ years of academic excellence and leadership in engineering education."
+          alignment="left"
+          light={true}
+        />
 
         <motion.div
           variants={containerVariants}

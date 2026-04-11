@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, Calendar, MapPin, Target } from 'lucide-react';
 import { profileData } from '@/data/profile';
+import { SectionHeading } from '@/components/ui';
 
 const Education = () => {
   const containerVariants = {
@@ -28,21 +29,12 @@ const Education = () => {
       />
 
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={itemVariants}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center justify-center p-3 bg-gold/10 rounded-full mb-4 border border-gold/20">
-            <GraduationCap className="text-gold" size={28} />
-          </div>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">
-            Education
-          </h2>
-          <div className="w-24 h-1 bg-gold mx-auto rounded-full" />
-        </motion.div>
+        <SectionHeading 
+          title="Education" 
+          subtitle="Academic timeline and foundational qualifications."
+          alignment="center"
+          light={true}
+        />
 
         <motion.div
           variants={containerVariants}

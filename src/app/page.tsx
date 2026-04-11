@@ -20,6 +20,7 @@ export default function Home() {
       <Education />
       <Experience />
       <Publications />
+      <Patents />
       <Achievements />
       <Skills />
       <Contact />

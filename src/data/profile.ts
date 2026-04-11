@@ -199,6 +199,48 @@ export const profileData: ProfileData = {
       journal: "International Journal of Computer Applications (IJCA)",
       year: "2014",
       type: "Journal"
+    },
+    {
+      title: "Deep Learning Neural Networks with Dual-View Pyramid Pooling Algorithm for Better Confidence Calibration and Medical Image Classification",
+      journal: "Proc. 6th International Conference on Advances in Electrical and Computer Technologies (ICAECT 2024)",
+      year: "2024",
+      type: "Conference"
+    },
+    {
+      title: "Smart Contract-Based Advanced Financial Security System: A Literature Review",
+      journal: "Proc. IEEE RMKMATE 2023",
+      year: "2023",
+      type: "Conference"
+    },
+    {
+      title: "Innovative Online Ticketing Model on an Intelligent Public Blockchain",
+      journal: "Proc. 5th ICICV 2023",
+      year: "2023",
+      type: "Conference"
+    },
+    {
+      title: "Electroencephalogram Data Analysed Through the Lens of Machine Learning to Detect Signs of Epilepsy",
+      journal: "Proc. 4th ICIRCA 2022",
+      year: "2022",
+      type: "Conference"
+    },
+    {
+      title: "The Artificial Intelligence Privacy Protection in Cyberspace",
+      journal: "Proc. Recent Innovations in Information and Computing Technologies",
+      year: "2022",
+      type: "Conference"
+    },
+    {
+      title: "Keyloggers Software Detection Techniques",
+      journal: "Proc. IEEE ISCO 2016",
+      year: "2016",
+      type: "Conference"
+    },
+    {
+      title: "Conciseness Agricultural Plenitude Detection Vicissitude Eclectic Transformation Model",
+      journal: "Proc. ICIEST 2019",
+      year: "2019",
+      type: "Conference"
     }
   ],
   patents: [
