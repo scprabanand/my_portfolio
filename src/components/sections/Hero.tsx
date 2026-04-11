@@ -190,19 +190,19 @@ const Hero = () => {
             <div className="relative w-48 h-48 md:w-72 md:h-72 rounded-full overflow-hidden bg-slate border-4 border-navy shadow-2xl flex items-center justify-center group overflow-hidden">
                <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                
-               {/* Actual Image Placeholder */}
-               <div className="w-full h-full relative">
+               {/* Passport-style crop: inner div is taller than circle, overflow clips to face */}
+               <div className="absolute inset-0 w-full" style={{ height: '280%', top: '0%' }}>
                   <Image
                     src="/portfolio/images/IMG_20260410_111837.jpg.jpeg"
                     alt="Prabanand S C"
                     fill
                     priority
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    style={{ objectPosition: 'center top' }}
                     unoptimized={true}
                     placeholder="blur"
                     blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
                     onError={(e) => {
-                      // fallback for placeholder
                       const target = e.target as HTMLImageElement;
                       target.style.display = 'none';
                       const parent = target.parentElement;

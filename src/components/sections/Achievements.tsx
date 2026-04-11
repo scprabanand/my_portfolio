@@ -207,8 +207,8 @@ export const Achievements = () => {
                   <h4 className="font-heading text-lg md:text-xl font-bold text-white leading-tight">
                     {lecture.topic}
                   </h4>
-                  <p className="font-body text-slate-400 text-sm mt-1">
-                    Delivered at: <span className="text-cream">{lecture.venue}</span>
+                  <p className="font-body text-white text-sm mt-1">
+                    Delivered at: <span className="text-gold font-semibold">{lecture.venue}</span>
                   </p>
                 </div>
               </motion.div>

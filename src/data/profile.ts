@@ -97,14 +97,12 @@ export const profileData: ProfileData = {
     {
       degree: "M.Tech (IT)",
       institution: "SNS College of Technology, Coimbatore",
-      year: "2013",
-      score: "7.71 CGPA"
+      year: "2013"
     },
     {
       degree: "B.Tech (IT)",
       institution: "Adhiparasakthi Engineering College, Melmaruvathur",
-      year: "2010",
-      score: "61%"
+      year: "2010"
     }
   ],
   experience: [
