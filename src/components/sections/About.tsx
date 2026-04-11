@@ -17,7 +17,7 @@ const About = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
   };
 
   const areasOfInterest = [
@@ -84,7 +84,7 @@ const About = () => {
                 {profileData.about.slice(1)}
               </p>
               <p className="font-body text-lg leading-relaxed text-navy/80 text-justify mt-4">
-                My academic journey is rooted in a deep curiosity for how emerging technologies can elegantly solve real-world problems. Whether I'm designing a decentralized security architecture, optimizing neural networks, or leading a hackathon team to national victory, my primary focus remains on bridging the gap between rigorous academic research and practical, high-impact societal applications.
+                My academic journey is rooted in a deep curiosity for how emerging technologies can elegantly solve real-world problems. Whether I&apos;m designing a decentralized security architecture, optimizing neural networks, or leading a hackathon team to national victory, my primary focus remains on bridging the gap between rigorous academic research and practical, high-impact societal applications.
               </p>
             </motion.div>
 

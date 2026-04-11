@@ -53,7 +53,7 @@ const AnimatedCounterComponent: React.FC<AnimatedCounterProps> = ({
       {icon && <div className="mb-2">{icon}</div>}
       <motion.div
         animate={isFinished ? { scale: [1, 1.1, 1] } : { scale: 1 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
+        transition={{ duration: 0.4, ease: "easeOut" as const }}
       >
         <h3 className="font-heading text-5xl font-bold text-gold mb-2 flex items-baseline">
           {count}{suffix}

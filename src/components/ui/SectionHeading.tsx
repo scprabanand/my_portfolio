@@ -25,7 +25,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.6, ease: "easeOut" as const }}
       className={`mb-16 ${isCenter ? 'text-center' : 'text-left'}`}
     >
       <h2 className={`font-heading text-4xl md:text-5xl font-bold ${textColor} mb-4`}>

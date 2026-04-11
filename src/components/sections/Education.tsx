@@ -34,7 +34,7 @@ const ThesisDetail = ({ thesis }: { thesis: string }) => {
           >
             <div className="p-4 bg-gold/5 border border-gold/20 rounded-lg text-left">
               <p className="font-body text-navy/80 italic text-sm md:text-base leading-relaxed">
-                "{thesis.replace('Thesis: ', '').replace(/'/g, "")}"
+                &quot;{thesis.replace('Thesis: ', '').replace(/'/g, "")}&quot;
               </p>
             </div>
           </motion.div>
@@ -46,7 +46,7 @@ const ThesisDetail = ({ thesis }: { thesis: string }) => {
 
 const Education = () => {
   // Map profileData to TimelineItems
-  const educationItems = profileData.education.map((edu, index) => {
+  const educationItems = profileData.education.map((edu) => {
     // Add custom icons per degree type
     let Icon = Building2;
     if (edu.degree.includes('Ph.D')) Icon = GraduationCap;

@@ -27,7 +27,7 @@ const Experience = () => {
       title: "Assistant Professor | AI Special Labs In-Charge | T&P Coordinator",
       institution: "Bannari Amman Institute of Technology, Sathyamangalam",
       icon: <Briefcase size={18} />,
-      badge: <CurrentBadge /> as any, // Handled within Timeline if it assumes string, but wait, Timeline expects badge as string. Let's pass CurrentBadge as ReactNode to `description` or update Timeline badge? 
+      badge: <CurrentBadge />, // Handled within Timeline if it assumes string, but wait, Timeline expects badge as string. Let's pass CurrentBadge as ReactNode to `description` or update Timeline badge? 
       // ACTUALLY: I should insert CurrentBadge into description or subtitle if Timeline badge only accepts string.
       // Wait, let's just edit it later or use a workaround. I will map it as description wrapper.
     },

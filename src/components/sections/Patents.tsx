@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Lightbulb, Info, FileCheck } from 'lucide-react';
+import { Lightbulb, FileCheck } from 'lucide-react';
 import { profileData } from '@/data/profile';
 import { SectionHeading } from '@/components/ui';
 
@@ -14,7 +14,7 @@ const Patents = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, scale: 0.95, y: 30 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
   };
 
   return (

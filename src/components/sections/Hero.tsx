@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ChevronDown, Mail, FileText, GraduationCap } from 'lucide-react';
+import { ChevronDown, Mail, FileText } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { SiGooglescholar } from 'react-icons/si';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
@@ -34,7 +34,7 @@ const Hero = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
   };
 
   const socialLinks = [
@@ -161,7 +161,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 1, ease: "easeOut" as const }}
           className="relative w-full md:w-2/5 flex items-center justify-center"
         >
           {/* Decorative Geometric Shape */}

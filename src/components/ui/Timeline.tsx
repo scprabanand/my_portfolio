@@ -59,7 +59,7 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
                   initial={{ scale: 0.8, opacity: 0 }}
                   whileInView={{ scale: [0.8, 1.5, 1], opacity: [0, 0.5, 0] }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+                  transition={{ duration: 1.5, ease: "easeOut" as const, delay: 0.2 }}
                   className="absolute inset-0 rounded-full bg-gold pointer-events-none"
                 />
               </div>
@@ -71,7 +71,7 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    transition={{ duration: 0.6, ease: "easeOut" as const }}
                     className="relative w-full md:pr-12 md:text-right"
                   >
                     <TimelineCard item={item} isEven={isEven} />
@@ -87,7 +87,7 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    transition={{ duration: 0.6, ease: "easeOut" as const }}
                     className={`relative w-full ${!isEven ? 'md:pl-12 md:text-left' : 'md:hidden'} text-left mt-0`}
                   >
                     <TimelineCard item={item} isEven={!isEven ? false : true /* Mobile renders as left-aligned */} mobileOverride={isEven} />
