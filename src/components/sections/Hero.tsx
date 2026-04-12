@@ -193,7 +193,7 @@ const Hero = () => {
                {/* Passport-style crop: inner div is taller than circle, overflow clips to face */}
                <div className="absolute inset-0 w-full" style={{ height: '280%', top: '0%' }}>
                   <Image
-                    src="/portfolio/images/IMG_20260410_111837.jpg.jpeg"
+                    src="/my_portfolio/images/IMG_20260410_111837.jpg.jpeg"
                     alt="Prabanand S C"
                     fill
                     priority
