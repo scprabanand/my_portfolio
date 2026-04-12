@@ -1,3 +1,4 @@
+// Trigger deployment: 2026-04-12
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "../styles/globals.css";
