@@ -4,7 +4,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
     Brain, 
-    ShieldCheck, 
     Code2, 
     Cpu, 
     Database, 
@@ -18,11 +17,6 @@ const skillCategories = [
     title: "AI & Machine Learning",
     icon: Brain,
     skills: ["Machine Learning", "Deep Learning", "Computer Vision", "NLP", "Generative AI", "Agentic AI"]
-  },
-  {
-    title: "Blockchain & Security",
-    icon: ShieldCheck,
-    skills: ["Ethereum", "Smart Contracts", "Solidity", "Blockchain Optimization", "Cyber Security"]
   },
   {
     title: "Programming",
