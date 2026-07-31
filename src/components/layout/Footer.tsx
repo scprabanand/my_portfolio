@@ -82,7 +82,7 @@ export const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="font-body text-xs text-slate-500">
-                        &copy; {new Date().getFullYear()} Prabanand S C. All rights reserved. 
+                        &copy; {new Date().getFullYear()} Dr. Prabanand S C. All rights reserved.
                         <Heart size={12} className="inline-block mx-1.5 text-red-500 animate-pulse" fill="currentColor" />
                     </p>
                     <div className="flex items-center gap-4 text-[10px] font-mono text-slate-600 uppercase tracking-widest">

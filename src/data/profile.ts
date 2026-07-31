@@ -73,7 +73,7 @@ export interface ProfileData {
 }
 
 export const profileData: ProfileData = {
-  name: "Prabanand S C",
+  name: "Dr. Prabanand S C",
   title: "Ph.D. Scholar (Awaiting Viva-Voce), Anna University",
   currentRole: "Assistant Professor | AI Special Labs In-Charge | T&P Coordinator",
   institution: "Bannari Amman Institute of Technology, Sathyamangalam",
