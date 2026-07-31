@@ -123,7 +123,7 @@ const TimelineCard = ({ item, isEven, mobileOverride = false }: { item: Timeline
 
       {/* Description */}
       {item.description && (
-        <div className={`font-body text-navy/70 text-sm leading-relaxed mb-4 ${alignRight ? 'md:text-right' : ''}`}>
+        <div className="font-body text-navy/70 text-sm leading-relaxed mb-4 text-left">
           {Array.isArray(item.description) ? (
             <ul className="space-y-2">
               {item.description.map((point, i) => (
