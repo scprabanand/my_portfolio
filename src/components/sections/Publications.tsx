@@ -32,7 +32,7 @@ const renderAuthors = () => {
   // Since authors are not in the current strict data structure, we assume Prabanand is the primary author
   return (
     <div className="font-body text-sm text-slate/70 mb-2">
-      <span className="font-semibold text-gold">S.C. Prabanand</span> et al.
+      <span className="font-semibold text-accent">S.C. Prabanand</span> et al.
     </div>
   );
 };
@@ -86,8 +86,8 @@ export const Publications = () => {
         >
           {/* Animated Counter */}
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-gold/10 rounded-lg">
-              <Award className="text-gold" size={24} />
+            <div className="p-2 bg-accent/10 rounded-lg">
+              <Award className="text-accent" size={24} />
             </div>
             <div>
               <h3 className="font-heading font-bold text-2xl text-navy flex items-baseline">
@@ -112,7 +112,7 @@ export const Publications = () => {
                   {isActive && (
                     <motion.div
                       layoutId="activeFilter"
-                      className="absolute inset-0 bg-gold rounded-full"
+                      className="absolute inset-0 bg-accent rounded-full"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -148,7 +148,7 @@ export const Publications = () => {
                   className="bg-white p-6 border border-slate-200 rounded-2xl shadow-sm relative flex flex-col h-full overflow-hidden group transition-all duration-300"
                 >
                   {/* Decorative Left Border */}
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-gold/50 to-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-accent/50 to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   {/* Header Row: Icon & Year */}
                   <div className="flex justify-between items-start mb-4">
@@ -156,7 +156,7 @@ export const Publications = () => {
                       {getIcon(pub.type)}
                       {pub.type}
                     </div>
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gold text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-sm">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-accent text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-sm">
                       <Calendar size={12} />
                       {pub.year}
                     </div>
@@ -172,14 +172,14 @@ export const Publications = () => {
                         href={pub.doi.includes('http') ? pub.doi : `https://doi.org/${pub.doi.replace('doi: ', '')}`} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="group-hover:text-gold transition-colors duration-300"
+                        className="group-hover:text-accent transition-colors duration-300"
                       >
                         <h3 className="font-heading text-xl font-bold text-navy leading-snug line-clamp-3">
                           {pub.title}
                         </h3>
                       </a>
                     ) : (
-                      <h3 className="font-heading text-xl font-bold text-navy leading-snug line-clamp-3 group-hover:text-gold transition-colors duration-300">
+                      <h3 className="font-heading text-xl font-bold text-navy leading-snug line-clamp-3 group-hover:text-accent transition-colors duration-300">
                         {pub.title}
                       </h3>
                     )}
@@ -203,7 +203,7 @@ export const Publications = () => {
                         href={pub.doi.includes('http') ? pub.doi : `https://doi.org/${pub.doi.replace('doi: ', '')}`} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 hover:bg-gold text-navy hover:text-white rounded-lg border border-slate-200 transition-all duration-300 font-semibold text-xs mt-2 sm:mt-0 self-start sm:self-center"
+                        className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 hover:bg-accent text-navy hover:text-white rounded-lg border border-slate-200 transition-all duration-300 font-semibold text-xs mt-2 sm:mt-0 self-start sm:self-center"
                         aria-label="View exact DOI URL"
                       >
                         DOI <ExternalLink size={12} />
@@ -233,7 +233,7 @@ export const Publications = () => {
         <div className="flex justify-center">
           <button
             onClick={() => setShowConferences(!showConferences)}
-            className="flex items-center gap-3 px-6 py-3 bg-navy text-white rounded-full font-heading font-bold text-lg hover:bg-gold transition-colors duration-300 shadow-md"
+            className="flex items-center gap-3 px-6 py-3 bg-navy text-white rounded-full font-heading font-bold text-lg hover:bg-accent transition-colors duration-300 shadow-md"
           >
             <Presentation size={20} />
             {showConferences ? 'Hide Conference Presentations' : 'Show Conference Presentations'}
@@ -272,7 +272,7 @@ export const Publications = () => {
                           <td className="p-4 font-body text-slate-700 text-sm">
                             {pub.journal}
                           </td>
-                          <td className="p-4 font-body text-gold font-bold text-center whitespace-nowrap">
+                          <td className="p-4 font-body text-accent font-bold text-center whitespace-nowrap">
                             {pub.year}
                           </td>
                         </tr>

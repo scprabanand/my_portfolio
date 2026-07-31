@@ -31,23 +31,23 @@ const About = () => {
 
   const stats = [
     {
-      icon: <Code className="text-gold/50 absolute top-4 right-4" size={40} />,
+      icon: <Code className="text-accent/50 absolute top-4 right-4" size={40} />,
       value: 12,
       suffix: "+",
       label: "Years Experience",
     },
     {
-      icon: <BookOpen className="text-gold/50 absolute top-4 right-4" size={40} />,
+      icon: <BookOpen className="text-accent/50 absolute top-4 right-4" size={40} />,
       value: profileData.publications.length,
       label: "Publications",
     },
     {
-      icon: <Award className="text-gold/50 absolute top-4 right-4" size={40} />,
+      icon: <Award className="text-accent/50 absolute top-4 right-4" size={40} />,
       value: 4,
       label: "SIH Awards",
     },
     {
-      icon: <FileBadge className="text-gold/50 absolute top-4 right-4" size={40} />,
+      icon: <FileBadge className="text-accent/50 absolute top-4 right-4" size={40} />,
       value: profileData.patents.length,
       label: "Patents Filed",
     },
@@ -57,7 +57,7 @@ const About = () => {
     <section id="about" className="py-24 relative bg-cream overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 opacity-50 transform -skew-x-12 translate-x-32 pointer-events-none" />
-      <div className="absolute -left-20 bottom-10 w-64 h-64 rounded-full border border-gold/20 pointer-events-none" />
+      <div className="absolute -left-20 bottom-10 w-64 h-64 rounded-full border border-accent/20 pointer-events-none" />
       <div className="absolute -left-10 bottom-20 w-48 h-48 rounded-full border border-navy/5 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10 max-w-7xl">
@@ -78,7 +78,7 @@ const About = () => {
           <div className="w-full lg:w-[55%]">
             <motion.div variants={itemVariants} className="prose prose-lg text-slate mb-10 max-w-none">
               <p className="font-body text-lg leading-relaxed text-navy/80 text-justify">
-                <span className="float-left text-6xl font-heading font-bold text-gold leading-none mr-3 mt-1 pointer-events-none">
+                <span className="float-left text-6xl font-heading font-bold text-accent leading-none mr-3 mt-1 pointer-events-none">
                   {profileData.about.charAt(0)}
                 </span>
                 {profileData.about.slice(1)}
@@ -89,14 +89,14 @@ const About = () => {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <h3 className="font-heading text-2xl font-bold text-navy mb-4 border-b border-gold/20 pb-2 inline-block">
+              <h3 className="font-heading text-2xl font-bold text-navy mb-4 border-b border-accent/20 pb-2 inline-block">
                 Areas of Interest
               </h3>
               <div className="flex flex-wrap gap-3 mt-2">
                 {areasOfInterest.map((interest, index) => (
                   <span 
                     key={index}
-                    className="px-4 py-2 bg-white text-navy font-body font-medium text-sm rounded-full border border-navy/10 shadow-sm hover:border-gold hover:text-gold hover:shadow-md transition-all duration-300 cursor-default"
+                    className="px-4 py-2 bg-white text-navy font-body font-medium text-sm rounded-full border border-navy/10 shadow-sm hover:border-accent hover:text-accent hover:shadow-md transition-all duration-300 cursor-default"
                   >
                     {interest}
                   </span>
@@ -115,7 +115,7 @@ const About = () => {
                   whileHover={{ y: -5, boxShadow: "0 10px 30px -10px rgba(10, 22, 40, 0.15)" }}
                   className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-navy/5 flex flex-col justify-center items-start text-left transition-all duration-300 relative overflow-hidden group h-full cursor-default"
                 >
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-gold/5 rounded-bl-[100px] transform origin-top-right group-hover:scale-125 transition-transform duration-500" />
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-bl-[100px] transform origin-top-right group-hover:scale-125 transition-transform duration-500" />
                   
                   <AnimatedCounter 
                     target={stat.value} 
@@ -136,23 +136,23 @@ const About = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="mt-20 w-full rounded-2xl bg-navy p-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent shadow-xl"
+          className="mt-20 w-full rounded-2xl bg-navy p-[1px] bg-gradient-to-r from-transparent via-accent/50 to-transparent shadow-xl"
         >
           <div className="bg-navy rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-4 backdrop-blur-sm relative overflow-hidden">
             {/* Soft inner glow */}
-            <div className="absolute inset-0 bg-gold/5 pointer-events-none" />
+            <div className="absolute inset-0 bg-accent/5 pointer-events-none" />
 
             <div className="relative z-10 w-full">
               <h4 className="font-heading text-2xl md:text-3xl font-bold text-cream mb-2 flex flex-col sm:flex-row sm:items-center sm:gap-3 justify-center">
                 {profileData.currentRole.split('|')[0].trim()}
-                <span className="hidden sm:inline text-gold">|</span>
-                <span className="text-gold text-xl md:text-2xl italic font-normal mt-1 sm:mt-0">{profileData.institution.split(',')[0]}</span>
+                <span className="hidden sm:inline text-accent">|</span>
+                <span className="text-accent text-xl md:text-2xl italic font-normal mt-1 sm:mt-0">{profileData.institution.split(',')[0]}</span>
               </h4>
             </div>
             
             <button 
               onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
-              className="relative z-10 shrink-0 p-3 bg-gold/10 hover:bg-gold text-gold hover:text-navy rounded-full transition-colors duration-300 group"
+              className="relative z-10 shrink-0 p-3 bg-accent/10 hover:bg-accent text-accent hover:text-navy rounded-full transition-colors duration-300 group"
               aria-label="Scroll to experience"
             >
               <ChevronRight size={24} className="transform group-hover:translate-x-1 transition-transform duration-300" />

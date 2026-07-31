@@ -72,15 +72,15 @@ const Navbar = () => {
       initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : -100 }}
       transition={{ duration: 0.3 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-gold/30 ${
-        isScrolled ? 'bg-navy/80 backdrop-blur-md shadow-lg shadow-navy/20' : 'bg-transparent border-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
+        isScrolled ? 'bg-white/90 backdrop-blur-md border-slate-200 shadow-sm' : 'bg-white border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <motion.div
           whileHover={{ scale: 1.05 }}
-          className="font-heading text-2xl font-bold text-gold cursor-pointer"
+          className="font-heading text-2xl font-bold text-accent cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           Dr. Prabanand S C
@@ -93,13 +93,13 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               onClick={(e) => scrollToSection(e, link.href)}
-              className="relative font-body text-sm font-medium text-cream hover:text-gold transition-colors duration-300"
+              className="relative font-body text-sm font-medium text-navy hover:text-accent transition-colors duration-300"
             >
               {link.name}
               {activeSection === link.href.replace('#', '') && (
                 <motion.div
                   layoutId="activeNav"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gold"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
@@ -111,7 +111,7 @@ const Navbar = () => {
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gold focus:outline-none p-2"
+            className="text-accent focus:outline-none p-2"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -127,11 +127,11 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.4, ease: 'easeInOut' }}
-            className="fixed inset-0 z-40 bg-navy flex flex-col items-center justify-center space-y-8"
+            className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center space-y-8"
           >
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 text-gold"
+              className="absolute top-6 right-6 text-accent"
             >
               <X size={32} />
             </button>
@@ -144,7 +144,7 @@ const Navbar = () => {
                 transition={{ delay: 0.1 }}
                 onClick={(e) => scrollToSection(e, link.href)}
                 className={`font-heading text-3xl font-semibold transition-colors duration-300 ${
-                  activeSection === link.href.replace('#', '') ? 'text-gold' : 'text-cream hover:text-gold'
+                  activeSection === link.href.replace('#', '') ? 'text-accent' : 'text-navy hover:text-accent'
                 }`}
               >
                 {link.name}

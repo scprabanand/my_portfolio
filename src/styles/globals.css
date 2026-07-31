@@ -26,8 +26,29 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+@layer base {
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-white;
+  }
+
+  :focus-within {
+    @apply outline-none;
+  }
+}
+
+.skip-link {
+  @apply absolute left-0 top-0 -translate-y-full bg-accent text-white px-6 py-3 font-bold z-[100] transition-transform duration-200 focus:translate-y-0;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .hide-scrollbars {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbars::-webkit-scrollbar {
+    display: none;
   }
 }

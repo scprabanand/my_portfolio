@@ -9,11 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: "#0A1628",
-        gold: "#C9A84C",
+        navy: "#0F172A",
         slate: "#1E293B",
-        cream: "#FAF8F5",
-        accent: "#1A5276",
+        cream: "#FFFFFF",
+        accent: "#2563EB",
       },
       fontFamily: {
         heading: ["var(--font-playfair-display)", "sans-serif"],

@@ -36,9 +36,9 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       
       {/* Decorative Underline */}
       <div className={`relative flex items-center ${isCenter ? 'justify-center mx-auto' : 'justify-start'} mb-6`}>
-        <div className="w-12 h-[2px] bg-gold" />
-        <div className="w-3 h-3 bg-gold transform rotate-45 border-2 border-cream shrink-0" style={{ margin: '0 -2px' }} />
-        <div className="w-12 h-[2px] bg-gold" />
+        <div className="w-12 h-[2px] bg-accent" />
+        <div className="w-3 h-3 bg-accent transform rotate-45 border-2 border-cream shrink-0" style={{ margin: '0 -2px' }} />
+        <div className="w-12 h-[2px] bg-accent" />
       </div>
 
       {subtitle && (

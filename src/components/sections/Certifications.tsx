@@ -72,7 +72,7 @@ export const Certifications = () => {
                     onClick={() => setActiveYear(year)}
                     className={`px-4 py-1.5 rounded-full text-sm font-body font-semibold transition-all duration-300 ${
                         activeYear === year 
-                        ? 'bg-gold text-white shadow-md' 
+                        ? 'bg-accent text-white shadow-md' 
                         : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
                     }`}
                 >
@@ -113,7 +113,7 @@ export const Certifications = () => {
                                 </div>
 
                                 <div className="flex-1">
-                                    <h3 className="font-heading text-lg font-bold text-navy leading-tight mb-2 group-hover:text-gold transition-colors duration-300">
+                                    <h3 className="font-heading text-lg font-bold text-navy leading-tight mb-2 group-hover:text-accent transition-colors duration-300">
                                         {cert.name}
                                     </h3>
                                     <p className="font-body text-sm font-semibold text-slate-500">
@@ -123,7 +123,7 @@ export const Certifications = () => {
 
                                 <div className="mt-4 pt-4 border-t border-slate-50 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <span className="text-[10px] uppercase font-black text-slate-300 tracking-widest">Verified Badge</span>
-                                    <Award size={16} className="text-gold" />
+                                    <Award size={16} className="text-accent" />
                                 </div>
                             </div>
                         </motion.div>

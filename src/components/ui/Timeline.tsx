@@ -42,7 +42,7 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
         Animated Vertical Line 
       */}
       <motion.div 
-        className="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gold transform md:-translate-x-1/2 origin-top"
+        className="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[2px] bg-accent transform md:-translate-x-1/2 origin-top"
         style={{ scaleY }}
       />
 
@@ -53,16 +53,8 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
           return (
             <div key={index} className="relative flex items-center md:justify-between flex-col md:flex-row w-full group mb-8 md:mb-0">
               
-              {/* Timeline Node (Gold Circle) */}
-              <div className="absolute left-[24px] md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-5 h-5 rounded-full bg-cream border-4 border-gold z-10 shadow-[0_0_0_4px_rgba(201,168,76,0.1)] group-hover:bg-gold transition-colors duration-300 ml-[-10px] md:ml-0">
-                <motion.div 
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  whileInView={{ scale: [0.8, 1.5, 1], opacity: [0, 0.5, 0] }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 1.5, ease: "easeOut" as const, delay: 0.2 }}
-                  className="absolute inset-0 rounded-full bg-gold pointer-events-none"
-                />
-              </div>
+              {/* Timeline Node */}
+              <div className="absolute left-[24px] md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-5 h-5 rounded-full bg-white border-4 border-accent z-10 ml-[-10px] md:ml-0" />
 
               {/* Left Side (Empty on Odd, Card on Even) */}
               <div className={`hidden md:flex w-full md:w-1/2 px-12 md:px-0 ${!isEven ? 'order-1 md:order-none' : ''}`}>
@@ -105,10 +97,10 @@ export const Timeline: React.FC<TimelineProps> = ({ items }) => {
 const TimelineCard = ({ item, isEven, mobileOverride = false }: { item: TimelineItem, isEven: boolean, mobileOverride?: boolean }) => {
   const alignRight = isEven && !mobileOverride;
   return (
-    <div className={`p-6 bg-white border-l-4 border-gold shadow-sm rounded-xl border-t border-r border-b border-navy/5 relative group-hover:shadow-md transition-shadow duration-300 ${alignRight ? 'md:border-l-0 md:border-r-4' : ''}`}>
+    <div className={`p-6 bg-white border-l-4 border-accent shadow-sm rounded-xl border-t border-r border-b border-navy/5 relative group-hover:shadow-md transition-shadow duration-300 ${alignRight ? 'md:border-l-0 md:border-r-4' : ''}`}>
       {/* Header Area */}
       <div className={`flex flex-col gap-3 mb-4 ${alignRight ? 'md:items-end' : 'md:items-start'} items-start`}>
-        <div className="inline-flex px-3 py-1 bg-gold/10 text-gold text-sm font-bold rounded-md font-body uppercase tracking-wider shadow-sm border border-gold/20">
+        <div className="inline-flex px-3 py-1 bg-accent/10 text-accent text-sm font-bold rounded-md font-body uppercase tracking-wider shadow-sm border border-accent/20">
           {item.year}
         </div>
         
@@ -125,7 +117,7 @@ const TimelineCard = ({ item, isEven, mobileOverride = false }: { item: Timeline
       </div>
 
       <h4 className={`font-body text-slate/70 font-medium text-base mb-4 flex gap-2 ${alignRight ? 'md:justify-end md:flex-row-reverse' : ''} items-start`}>
-        {item.icon && <span className="text-gold mt-0.5">{item.icon}</span>}
+        {item.icon && <span className="text-accent mt-0.5">{item.icon}</span>}
         {item.institution}
       </h4>
 

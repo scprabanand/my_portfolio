@@ -21,7 +21,7 @@ const FloatingInput = ({ label, name, type = "text", required = true }: { label:
                 animate={{
                     y: (focused || value) ? -28 : 0,
                     scale: (focused || value) ? 0.8 : 1,
-                    color: focused ? "#C9A84C" : "#94a3b8"
+                    color: focused ? "#2563EB" : "#94a3b8"
                 }}
                 className={`absolute left-0 top-3 pointer-events-none font-body transition-all duration-200`}
             >
@@ -36,7 +36,7 @@ const FloatingInput = ({ label, name, type = "text", required = true }: { label:
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
                 onChange={(e) => setValue(e.target.value)}
-                className="w-full py-3 bg-transparent border-b-2 border-slate-200 outline-none focus:border-gold transition-colors duration-300 font-body text-navy"
+                className="w-full py-3 bg-transparent border-b-2 border-slate-200 outline-none focus:border-accent transition-colors duration-300 font-body text-navy"
             />
         </div>
     );
@@ -74,7 +74,7 @@ export const Contact = () => {
                             <motion.div 
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
-                                className="h-full bg-white border border-gold/20 rounded-3xl p-12 flex flex-col items-center justify-center text-center shadow-xl shadow-gold/5"
+                                className="h-full bg-white border border-accent/20 rounded-3xl p-12 flex flex-col items-center justify-center text-center shadow-xl shadow-accent/5"
                             >
                                 <div className="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center mb-6">
                                     <CheckCircle2 size={48} />
@@ -83,7 +83,7 @@ export const Contact = () => {
                                 <p className="font-body text-slate-600 max-w-sm">Your inquiry has been received. I will get back to you as soon as possible.</p>
                                 <button 
                                     onClick={() => setSubmitted(false)}
-                                    className="mt-8 font-body font-bold text-gold hover:underline"
+                                    className="mt-8 font-body font-bold text-accent hover:underline"
                                 >
                                     Send another message
                                 </button>
@@ -103,13 +103,13 @@ export const Contact = () => {
                                         required
                                         placeholder="Your Message..."
                                         rows={4}
-                                        className="w-full py-3 bg-transparent border-b-2 border-slate-200 outline-none focus:border-gold transition-colors duration-300 font-body text-navy resize-none"
+                                        className="w-full py-3 bg-transparent border-b-2 border-slate-200 outline-none focus:border-accent transition-colors duration-300 font-body text-navy resize-none"
                                     />
                                 </div>
 
                                 <button 
                                     type="submit"
-                                    className="w-full py-4 bg-navy text-white font-heading font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-gold transition-all duration-300 group shadow-lg shadow-navy/20"
+                                    className="w-full py-4 bg-navy text-white font-heading font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-accent transition-all duration-300 group shadow-lg shadow-navy/20"
                                 >
                                     Submit Inquiry 
                                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />

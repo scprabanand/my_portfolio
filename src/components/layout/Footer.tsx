@@ -1,9 +1,8 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-    Heart, 
+import {
+    Heart,
     ArrowUpRight
 } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
@@ -23,7 +22,7 @@ export const Footer = () => {
     return (
         <footer className="bg-[#0A1628] text-cream pt-20 pb-10 relative overflow-hidden">
             {/* Background Accent */}
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gold opacity-30" />
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-accent opacity-30" />
             
             <div className="container mx-auto px-6 max-w-7xl relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
@@ -31,7 +30,7 @@ export const Footer = () => {
                     {/* Left Column: Brand & Social */}
                     <div className="space-y-6">
                         <h2 className="font-heading text-3xl font-bold tracking-tighter text-white">
-                            Dr. Prabanand <span className="text-gold italic font-serif">S C</span>
+                            Dr. Prabanand <span className="text-accent italic font-serif">S C</span>
                         </h2>
                         <p className="font-body text-slate-400 max-w-xs leading-relaxed">
                             Associate Professor & AI Researcher dedicated to bridging academia and social-impact technology.
@@ -44,16 +43,15 @@ export const Footer = () => {
                             ].map((social, i) => {
                                 const Icon = social.icon;
                                 return (
-                                    <motion.a 
+                                    <a
                                         key={i}
                                         href={social.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        whileHover={{ y: -3 }}
                                         className={`p-2 bg-white/5 border border-white/10 rounded-lg text-slate-500 transition-colors duration-300 ${social.color}`}
                                     >
                                         <Icon size={20} />
-                                    </motion.a>
+                                    </a>
                                 );
                             })}
                         </div>
@@ -67,7 +65,7 @@ export const Footer = () => {
                                 <li key={link.name}>
                                     <a 
                                         href={link.href}
-                                        className="font-body text-slate-400 hover:text-gold text-sm transition-colors duration-300 flex items-center gap-1 group"
+                                        className="font-body text-slate-400 hover:text-accent text-sm transition-colors duration-300 flex items-center gap-1 group"
                                     >
                                         <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all" />
                                         {link.name}
@@ -83,13 +81,13 @@ export const Footer = () => {
                 <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="font-body text-xs text-slate-500">
                         &copy; {new Date().getFullYear()} Dr. Prabanand S C. All rights reserved.
-                        <Heart size={12} className="inline-block mx-1.5 text-red-500 animate-pulse" fill="currentColor" />
+                        <Heart size={12} className="inline-block mx-1.5 text-red-500" fill="currentColor" />
                     </p>
                     <div className="flex items-center gap-4 text-[10px] font-mono text-slate-600 uppercase tracking-widest">
                         <span>Made with Next.js</span>
-                        <span className="w-1 h-1 bg-gold rounded-full" />
+                        <span className="w-1 h-1 bg-accent rounded-full" />
                         <span>TypeScript</span>
-                        <span className="w-1 h-1 bg-gold rounded-full" />
+                        <span className="w-1 h-1 bg-accent rounded-full" />
                         <span>Tailwind CSS</span>
                     </div>
                 </div>

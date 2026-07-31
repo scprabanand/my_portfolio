@@ -13,7 +13,7 @@ const ThesisDetail = ({ thesis }: { thesis: string }) => {
     <div className="mt-4 w-full">
       <button 
         onClick={() => setIsExpanded(!isExpanded)}
-        className="flex items-center gap-2 px-4 py-2 bg-gold/10 hover:bg-gold/20 text-gold rounded-md transition-colors duration-300 w-full md:w-auto"
+        className="flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent/20 text-accent rounded-md transition-colors duration-300 w-full md:w-auto"
       >
         <BookText size={16} />
         <span className="font-body font-semibold text-sm">Ph.D. Thesis Detail</span>
@@ -32,7 +32,7 @@ const ThesisDetail = ({ thesis }: { thesis: string }) => {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="p-4 bg-gold/5 border border-gold/20 rounded-lg text-left">
+            <div className="p-4 bg-accent/5 border border-accent/20 rounded-lg text-left">
               <p className="font-body text-navy/80 italic text-sm md:text-base leading-relaxed">
                 &quot;{thesis.replace('Thesis: ', '').replace(/'/g, "")}&quot;
               </p>

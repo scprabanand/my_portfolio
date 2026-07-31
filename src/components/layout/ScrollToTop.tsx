@@ -37,14 +37,11 @@ const ScrollToTop = () => {
           exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
           transition={{ duration: 0.3 }}
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 z-50 p-3 bg-gold text-white rounded-full shadow-lg border border-gold/50 cursor-pointer overflow-hidden group"
+          className="fixed bottom-4 right-4 z-50 p-3 bg-accent hover:bg-accent/90 text-white rounded-full shadow-lg cursor-pointer transition-colors duration-300"
           aria-label="Scroll to top"
-          whileHover={{ scale: 1.1, boxShadow: "0 10px 25px -5px rgba(201, 168, 76, 0.4)" }}
           whileTap={{ scale: 0.95 }}
         >
-          {/* Subtle hover pulse effect */}
-          <div className="absolute inset-0 rounded-full bg-white/20 scale-0 group-hover:scale-150 transition-transform duration-500 origin-center" />
-          <ArrowUp size={24} className="relative z-10" />
+          <ArrowUp size={24} />
         </motion.button>
       )}
     </AnimatePresence>

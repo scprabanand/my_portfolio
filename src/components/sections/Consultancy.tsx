@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Building2, Landmark, ShieldCheck, TrendingUp } from 'lucide-react';
 import { SectionHeading } from '@/components/ui';
 
@@ -15,7 +15,7 @@ const consultancyProjects = [
     description: "Developed a comprehensive real-time traffic and crowd management platform for major events, utilizing machine learning to predict and manage vehicle flows.",
     value: "Rs. 50,000",
     tech: ["Machine Learning", "Vehicle Flow Management", "Real-time Analytics", "Web Platform"],
-    color: "gold"
+    color: "accent"
   },
   {
     id: "02",
@@ -30,43 +30,19 @@ const consultancyProjects = [
   }
 ];
 
-const TiltCard = ({ project }: { project: typeof consultancyProjects[0] }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const rotateX = useSpring(useTransform(y, [-100, 100], [10, -10]), { stiffness: 100, damping: 30 });
-  const rotateY = useSpring(useTransform(x, [-100, 100], [-10, 10]), { stiffness: 100, damping: 30 });
-
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    
-    x.set(e.clientX - centerX);
-    y.set(e.clientY - centerY);
-  }
-
-  function handleMouseLeave() {
-    x.set(0);
-    y.set(0);
-  }
-
+const ProjectCard = ({ project }: { project: typeof consultancyProjects[0] }) => {
   const Icon = project.clientIcon;
 
   return (
     <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" as const }}
-        style={{ perspective: 2000 }}
+        transition={{ duration: 0.5, ease: "easeOut" as const }}
         className="group mb-12 last:mb-0"
     >
-      <motion.div
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{ rotateX, rotateY }}
-        className="relative bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm group-hover:shadow-2xl transition-shadow duration-500 overflow-hidden"
+      <div
+        className="relative bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm overflow-hidden"
       >
         {/* Subtle Decorative Background Number */}
         <span className="absolute -right-4 -top-8 text-[120px] md:text-[200px] font-heading font-black text-slate-100/50 pointer-events-none select-none">
@@ -79,12 +55,12 @@ const TiltCard = ({ project }: { project: typeof consultancyProjects[0] }) => {
           {/* Content Area */}
           <div className="flex-1 order-2 md:order-1">
             <div className="flex flex-wrap items-center gap-3 mb-6">
-                 <div className="px-5 py-2 bg-navy text-white font-bold text-sm uppercase tracking-widest rounded-full shadow-gold pulsate-slow">
+                 <div className="px-5 py-2 bg-navy text-white font-bold text-sm uppercase tracking-widest rounded-full">
                     {project.value}
                 </div>
             </div>
 
-            <h3 className="font-heading text-4xl md:text-5xl font-bold text-navy mb-4 group-hover:text-gold transition-colors duration-300">
+            <h3 className="font-heading text-4xl md:text-5xl font-bold text-navy mb-4 group-hover:text-accent transition-colors duration-300">
                 {project.name}
             </h3>
             
@@ -93,7 +69,7 @@ const TiltCard = ({ project }: { project: typeof consultancyProjects[0] }) => {
             </p>
 
             <div className="flex items-start gap-3 mb-8 bg-slate-50 p-4 rounded-xl border border-slate-100">
-                <Icon className="text-gold mt-1 shrink-0" size={24} />
+                <Icon className="text-accent mt-1 shrink-0" size={24} />
                 <span className="font-body font-bold text-navy text-lg leading-snug">
                     {project.client}
                 </span>
@@ -107,7 +83,7 @@ const TiltCard = ({ project }: { project: typeof consultancyProjects[0] }) => {
               {project.tech.map((tag) => (
                 <span 
                     key={tag} 
-                    className="px-4 py-2 bg-slate-100 text-slate-600 text-sm font-semibold rounded-lg border border-slate-200 group-hover:border-gold/30 transition-colors duration-300"
+                    className="px-4 py-2 bg-slate-100 text-slate-600 text-sm font-semibold rounded-lg border border-slate-200 group-hover:border-accent/30 transition-colors duration-300"
                 >
                     {tag}
                 </span>
@@ -117,35 +93,35 @@ const TiltCard = ({ project }: { project: typeof consultancyProjects[0] }) => {
 
           {/* Icon/Decorative Area */}
           <div className="w-full md:w-auto order-1 md:order-2 self-stretch flex items-center justify-center">
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-gold/5 flex items-center justify-center border border-gold/10 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-accent/5 flex items-center justify-center border border-accent/10">
                 {project.id === "01" ? (
-                    <ShieldCheck className="text-gold" size={64} />
+                    <ShieldCheck className="text-accent" size={64} />
                 ) : (
-                    <TrendingUp className="text-gold" size={64} />
+                    <TrendingUp className="text-accent" size={64} />
                 )}
             </div>
           </div>
 
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };
 
 export const Consultancy = () => {
   return (
-    <section id="consultancy" className="py-24 bg-[#FAF8F5] relative overflow-hidden">
+    <section id="consultancy" className="py-24 bg-slate-50 relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
-        
-        <SectionHeading 
-          title="Consultancy Services" 
+
+        <SectionHeading
+          title="Consultancy Services"
           subtitle="Real-World AI Solutions & Social Impact"
           alignment="center"
         />
 
         <div className="mt-16 space-y-12">
           {consultancyProjects.map((project) => (
-            <TiltCard key={project.id} project={project} />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
 
