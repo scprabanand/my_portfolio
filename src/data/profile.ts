@@ -92,7 +92,7 @@ export const profileData: ProfileData = {
       degree: "Ph.D.",
       institution: "Anna University, Chennai",
       details: "Thesis: 'Hybrid Optimization Strategy for Enhancing Financial Security in Private Ethereum Consortium Blockchain'",
-      year: "Completed"
+      year: "2026"
     },
     {
       degree: "M.Tech (IT)",
