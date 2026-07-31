@@ -109,7 +109,7 @@ export const Contact = () => {
 
                                 <button 
                                     type="submit"
-                                    className="w-full py-4 bg-navy text-white font-heading font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-accent transition-all duration-300 group shadow-lg shadow-navy/20"
+                                    className="w-full py-4 bg-accent text-white font-heading font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-accent/90 transition-colors duration-300 group"
                                 >
                                     Submit Inquiry 
                                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
