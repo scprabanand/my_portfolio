@@ -86,7 +86,7 @@ const Experience = () => {
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <SectionHeading 
           title="Professional Experience" 
-          subtitle="11+ Years in Academia & Research"
+          subtitle="12+ Years in Academia & Research"
           alignment="center"
           light={false}
         />
