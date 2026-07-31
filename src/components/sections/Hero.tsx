@@ -90,13 +90,13 @@ const Hero = () => {
               <FileText size={18} />
               View Publications
             </button>
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            <a
+              href={`mailto:${profileData.email}`}
               className="w-full sm:w-auto px-8 py-3.5 border-2 border-accent text-accent font-bold rounded-lg hover:bg-accent/5 transition-colors duration-300 flex items-center justify-center gap-2"
             >
               <Mail size={18} />
               Contact Me
-            </button>
+            </a>
           </motion.div>
         </motion.div>
 

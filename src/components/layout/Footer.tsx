@@ -14,8 +14,7 @@ const navLinks = [
     { name: 'Experience', href: '#experience' },
     { name: 'Research', href: '#publications' },
     { name: 'Achievements', href: '#achievements' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Skills', href: '#skills' }
 ];
 
 export const Footer = () => {

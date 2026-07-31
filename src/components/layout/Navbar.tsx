@@ -11,7 +11,6 @@ const navLinks = [
   { name: 'Research', href: '#publications' },
   { name: 'Achievements', href: '#achievements' },
   { name: 'Skills', href: '#skills' },
-  { name: 'Contact', href: '#contact' },
 ];
 
 const Navbar = () => {

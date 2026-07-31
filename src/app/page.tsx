@@ -11,7 +11,6 @@ const Consultancy = dynamic(() => import('@/components/sections').then(mod => mo
 const Certifications = dynamic(() => import('@/components/sections').then(mod => mod.Certifications), { loading: () => <SectionSkeleton /> });
 const Patents = dynamic(() => import('@/components/sections').then(mod => mod.Patents), { loading: () => <SectionSkeleton /> });
 const Skills = dynamic(() => import('@/components/sections').then(mod => mod.Skills), { loading: () => <SectionSkeleton /> });
-const Contact = dynamic(() => import('@/components/sections').then(mod => mod.Contact), { loading: () => <SectionSkeleton /> });
 
 export default function Home() {
   return (
@@ -26,8 +25,7 @@ export default function Home() {
       <Consultancy />
       <Certifications />
       <Skills />
-      <Contact />
-      
+
       {/* Footer is rendered globally in layout.tsx */}
     </main>
   );
