@@ -132,32 +132,27 @@ const About = () => {
 
         {/* Bottom Banner Divider */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="mt-20 w-full rounded-2xl bg-navy p-[1px] bg-gradient-to-r from-transparent via-accent/50 to-transparent shadow-xl"
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className="mt-20 w-full rounded-2xl bg-white border border-slate-200 shadow-sm p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-4"
         >
-          <div className="bg-navy rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-4 backdrop-blur-sm relative overflow-hidden">
-            {/* Soft inner glow */}
-            <div className="absolute inset-0 bg-accent/5 pointer-events-none" />
-
-            <div className="relative z-10 w-full">
-              <h4 className="font-heading text-2xl md:text-3xl font-bold text-cream mb-2 flex flex-col sm:flex-row sm:items-center sm:gap-3 justify-center">
-                {profileData.currentRole.split('|')[0].trim()}
-                <span className="hidden sm:inline text-accent">|</span>
-                <span className="text-accent text-xl md:text-2xl italic font-normal mt-1 sm:mt-0">{profileData.institution.split(',')[0]}</span>
-              </h4>
-            </div>
-            
-            <button 
-              onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
-              className="relative z-10 shrink-0 p-3 bg-accent/10 hover:bg-accent text-accent hover:text-navy rounded-full transition-colors duration-300 group"
-              aria-label="Scroll to experience"
-            >
-              <ChevronRight size={24} className="transform group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
+          <div className="w-full">
+            <h4 className="font-heading text-2xl md:text-3xl font-bold text-navy mb-2 flex flex-col sm:flex-row sm:items-center sm:gap-3 justify-center">
+              {profileData.currentRole.split('|')[0].trim()}
+              <span className="hidden sm:inline text-accent">|</span>
+              <span className="text-accent text-xl md:text-2xl italic font-normal mt-1 sm:mt-0">{profileData.institution.split(',')[0]}</span>
+            </h4>
           </div>
+
+          <button
+            onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
+            className="shrink-0 p-3 bg-accent/10 hover:bg-accent text-accent hover:text-white rounded-full transition-colors duration-300 group"
+            aria-label="Scroll to experience"
+          >
+            <ChevronRight size={24} className="transform group-hover:translate-x-1 transition-transform duration-300" />
+          </button>
         </motion.div>
 
       </div>
