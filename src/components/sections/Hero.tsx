@@ -116,7 +116,7 @@ const Hero = () => {
 
           {/* Heading */}
           <motion.h1 variants={itemVariants} className="font-heading text-5xl md:text-7xl font-bold text-cream mb-4 leading-tight">
-            Dr. Prabanand <span className="bg-gradient-to-r from-gold via-[#E5C76B] to-gold bg-clip-text text-transparent italic">S C</span>
+            Dr. Prabanand <span className="bg-gradient-to-r from-gold via-[#E5C76B] to-gold bg-clip-text text-transparent italic">S C</span>, Ph.D.
           </motion.h1>
 
           {/* Subtitle */}
