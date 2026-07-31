@@ -110,13 +110,13 @@ const Hero = () => {
           {/* Badge */}
           <motion.div variants={itemVariants} className="inline-flex items-center px-4 py-1.5 rounded-full bg-gold/10 border border-gold/30 backdrop-blur-sm mb-6 shadow-[0_0_15px_rgba(201,168,76,0.1)]">
             <span className="text-gold text-xs md:text-sm font-medium tracking-wider uppercase">
-              Ph.D. Scholar | AI Researcher
+              Ph.D. | AI Researcher
             </span>
           </motion.div>
 
           {/* Heading */}
           <motion.h1 variants={itemVariants} className="font-heading text-5xl md:text-7xl font-bold text-cream mb-4 leading-tight">
-            Prabanand <span className="bg-gradient-to-r from-gold via-[#E5C76B] to-gold bg-clip-text text-transparent italic">S C</span>
+            Dr. Prabanand <span className="bg-gradient-to-r from-gold via-[#E5C76B] to-gold bg-clip-text text-transparent italic">S C</span>
           </motion.h1>
 
           {/* Subtitle */}

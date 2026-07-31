@@ -31,7 +31,7 @@ export const Footer = () => {
                     {/* Left Column: Brand & Social */}
                     <div className="space-y-6">
                         <h2 className="font-heading text-3xl font-bold tracking-tighter text-white">
-                            Prabanand <span className="text-gold italic font-serif">S C</span>
+                            Dr. Prabanand <span className="text-gold italic font-serif">S C</span>
                         </h2>
                         <p className="font-body text-slate-400 max-w-xs leading-relaxed">
                             Assistant Professor & AI Researcher dedicated to bridging academia and social-impact technology.
