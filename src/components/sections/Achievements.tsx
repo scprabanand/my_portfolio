@@ -46,6 +46,10 @@ const guestLectures = [
   {
     topic: "AI-Powered Smart Contracts",
     venue: "Kamaraj College of Engineering FDP"
+  },
+  {
+    topic: "Intelligent Electronics – How Machine Learning Drives Signal Processing, Communication and IoT",
+    venue: "Sethu Institute of Technology"
   }
 ];
 
