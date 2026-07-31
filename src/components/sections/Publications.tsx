@@ -223,7 +223,7 @@ export const Publications = () => {
         <div className="flex justify-center">
           <button
             onClick={() => setShowConferences(!showConferences)}
-            className="flex items-center gap-3 px-6 py-3 bg-navy text-white rounded-full font-heading font-bold text-lg hover:bg-accent transition-colors duration-300 shadow-md"
+            className="flex items-center gap-3 px-6 py-3 bg-white border border-slate-200 text-navy rounded-full font-heading font-bold text-lg hover:border-accent hover:text-accent transition-colors duration-300 shadow-sm"
           >
             <Presentation size={20} />
             {showConferences ? 'Hide Conference Presentations' : 'Show Conference Presentations'}
@@ -244,7 +244,7 @@ export const Publications = () => {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse">
                     <thead>
-                      <tr className="bg-navy text-white font-body text-sm uppercase tracking-wider">
+                      <tr className="bg-slate-50 text-navy font-body text-sm uppercase tracking-wider border-b border-slate-200">
                         <th className="p-4 rounded-tl-2xl">Title</th>
                         <th className="p-4">Conference Name</th>
                         <th className="p-4 text-center rounded-tr-2xl">Year</th>
