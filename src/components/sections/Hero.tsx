@@ -115,7 +115,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Heading */}
-          <motion.h1 variants={itemVariants} className="font-heading text-5xl md:text-7xl font-bold text-cream mb-4 leading-tight">
+          <motion.h1 variants={itemVariants} className="font-heading text-[clamp(1.5rem,4.2vw,4rem)] font-bold text-cream mb-4 leading-tight whitespace-nowrap">
             Dr. Prabanand <span className="bg-gradient-to-r from-gold via-[#E5C76B] to-gold bg-clip-text text-transparent italic">S C</span>, Ph.D.
           </motion.h1>
 
