@@ -60,16 +60,6 @@ export const Publications = () => {
 
   return (
     <section id="publications" className="py-24 relative overflow-hidden bg-white">
-      {/* Subtle Paper Texture via CSS linear gradient */}
-      <div 
-        className="absolute inset-0 opacity-[0.02] pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(45deg, #0A1628 25%, transparent 25%, transparent 75%, #0A1628 75%, #0A1628), repeating-linear-gradient(45deg, #0A1628 25%, #FAF8F5 25%, #FAF8F5 75%, #0A1628 75%, #0A1628)`,
-          backgroundPosition: '0 0, 10px 10px',
-          backgroundSize: '20px 20px'
-        }}
-      />
-
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <SectionHeading 
           title="Research & Publications" 
