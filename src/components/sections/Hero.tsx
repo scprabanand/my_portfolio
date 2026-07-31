@@ -121,12 +121,12 @@ const Hero = () => {
 
           {/* Subtitle */}
           <motion.h2 variants={itemVariants} className="font-body text-xl md:text-2xl text-gold/90 font-medium mb-6">
-            Assistant Professor & AI Researcher
+            Associate Professor & AI Researcher
           </motion.h2>
 
           {/* Tagline */}
           <motion.p variants={itemVariants} className="font-body text-base md:text-lg text-cream/70 max-w-xl mb-8 leading-relaxed">
-            11+ years shaping future engineers with expertise in AI, Deep Learning, Computer Vision & Blockchain. Turning complex research into social-impact AI solutions.
+            12+ years shaping future engineers with expertise in AI, Deep Learning, Computer Vision & Blockchain. Turning complex research into social-impact AI solutions.
           </motion.p>
 
           {/* Social Links */}

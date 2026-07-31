@@ -32,7 +32,7 @@ const About = () => {
   const stats = [
     {
       icon: <Code className="text-gold/50 absolute top-4 right-4" size={40} />,
-      value: 11,
+      value: 12,
       suffix: "+",
       label: "Years Experience",
     },

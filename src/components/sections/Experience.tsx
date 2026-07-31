@@ -24,7 +24,7 @@ const Experience = () => {
   const experienceItems = [
     {
       year: "Jan 2022 - Present",
-      title: "Assistant Professor | AI Special Labs In-Charge | T&P Coordinator",
+      title: "Associate Professor | AI Special Labs In-Charge | T&P Coordinator",
       institution: "Bannari Amman Institute of Technology, Sathyamangalam",
       icon: <Briefcase size={18} />,
       badge: <CurrentBadge />, // Handled within Timeline if it assumes string, but wait, Timeline expects badge as string. Let's pass CurrentBadge as ReactNode to `description` or update Timeline badge? 

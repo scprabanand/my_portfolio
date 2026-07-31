@@ -17,8 +17,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Dr. Prabanand S C | AI Researcher & Assistant Professor",
-  description: "Portfolio of Dr. Prabanand S C - Ph.D., Assistant Professor atBIT Sathyamangalam. Expert in AI, Deep Learning, Computer Vision, and Blockchain.",
+  title: "Dr. Prabanand S C | AI Researcher & Associate Professor",
+  description: "Portfolio of Dr. Prabanand S C - Ph.D., Associate Professor atBIT Sathyamangalam. Expert in AI, Deep Learning, Computer Vision, and Blockchain.",
   keywords: ["AI researcher", "machine learning", "deep learning", "computer vision", "blockchain", "assistant professor", "Bannari Amman Institute of Technology", "Dindigul", "Tamil Nadu", "research publications"],
   authors: [{ name: "Dr. Prabanand S C" }],
   creator: "Dr. Prabanand S C",
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Dr. Prabanand S C | AI Researcher & Assistant Professor",
-    description: "Ph.D. and Assistant Professor specializing in AI, Deep Learning, and Blockchain technology.",
+    title: "Dr. Prabanand S C | AI Researcher & Associate Professor",
+    description: "Ph.D. and Associate Professor specializing in AI, Deep Learning, and Blockchain technology.",
     url: "https://scprabanand.github.io/portfolio",
     siteName: "Dr. Prabanand S C Portfolio",
     images: [
@@ -50,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dr. Prabanand S C | AI Researcher & Assistant Professor",
-    description: "Assistant Professor specializing in AI, Computer Vision, and Blockchain.",
+    title: "Dr. Prabanand S C | AI Researcher & Associate Professor",
+    description: "Associate Professor specializing in AI, Computer Vision, and Blockchain.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -80,7 +80,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Dr. Prabanand S C",
-              "jobTitle": "Assistant Professor",
+              "jobTitle": "Associate Professor",
               "affiliation": "Bannari Amman Institute of Technology",
               "url": "https://scprabanand.github.io/portfolio",
               "sameAs": [

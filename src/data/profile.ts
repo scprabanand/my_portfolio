@@ -75,7 +75,7 @@ export interface ProfileData {
 export const profileData: ProfileData = {
   name: "Dr. Prabanand S C",
   title: "Ph.D., Anna University, Chennai",
-  currentRole: "Assistant Professor | AI Special Labs In-Charge | T&P Coordinator",
+  currentRole: "Associate Professor | AI Special Labs In-Charge | T&P Coordinator",
   institution: "Bannari Amman Institute of Technology, Sathyamangalam",
   department: "Artificial Intelligence and Data Science",
   email: "scprabanand@gmail.com",
@@ -86,7 +86,7 @@ export const profileData: ProfileData = {
     github: "https://github.com/prabanand-sc",
     scholar: "https://scholar.google.com/citations?user=7Z5Py2AAAAAJ&hl=en",
   },
-  about: "Assistant Professor with a passion for Artificial Intelligence, Blockchain, and Social Impact projects. Currently transitioning from a Ph.D. scholar to a full-time academic leader with extensive experience in mentoring students for national-level hackathons (SIH) and leading AI-based consultancy projects for government and industrial sectors.",
+  about: "Associate Professor with a passion for Artificial Intelligence, Blockchain, and Social Impact projects. Extensive experience in mentoring students for national-level hackathons (SIH) and leading AI-based consultancy projects for government and industrial sectors.",
   education: [
     {
       degree: "Ph.D.",
@@ -107,7 +107,7 @@ export const profileData: ProfileData = {
   ],
   experience: [
     {
-      role: "Assistant Professor | AI Special Labs In-Charge | T&P Coordinator",
+      role: "Associate Professor | AI Special Labs In-Charge | T&P Coordinator",
       institution: "Bannari Amman Institute of Technology",
       period: "Jan 2022 - Present",
       description: [

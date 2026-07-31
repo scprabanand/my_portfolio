@@ -34,7 +34,7 @@ export const Footer = () => {
                             Dr. Prabanand <span className="text-gold italic font-serif">S C</span>
                         </h2>
                         <p className="font-body text-slate-400 max-w-xs leading-relaxed">
-                            Assistant Professor & AI Researcher dedicated to bridging academia and social-impact technology.
+                            Associate Professor & AI Researcher dedicated to bridging academia and social-impact technology.
                         </p>
                         <div className="flex gap-4">
                             {[
