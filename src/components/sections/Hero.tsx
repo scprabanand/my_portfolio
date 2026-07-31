@@ -1,15 +1,22 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
-import { Mail, FileText } from 'lucide-react';
+import { Mail, FileText, Check } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { SiGooglescholar } from 'react-icons/si';
 import { profileData } from '@/data/profile';
 
 const Hero = () => {
   const shouldReduceMotion = useReducedMotion();
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const handleContactClick = () => {
+    navigator.clipboard?.writeText(profileData.email).catch(() => {});
+    setEmailCopied(true);
+    setTimeout(() => setEmailCopied(false), 2500);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -92,10 +99,11 @@ const Hero = () => {
             </button>
             <a
               href={`mailto:${profileData.email}`}
+              onClick={handleContactClick}
               className="w-full sm:w-auto px-8 py-3.5 border-2 border-accent text-accent font-bold rounded-lg hover:bg-accent/5 transition-colors duration-300 flex items-center justify-center gap-2"
             >
-              <Mail size={18} />
-              Contact Me
+              {emailCopied ? <Check size={18} /> : <Mail size={18} />}
+              {emailCopied ? 'Email Copied!' : 'Contact Me'}
             </a>
           </motion.div>
         </motion.div>
