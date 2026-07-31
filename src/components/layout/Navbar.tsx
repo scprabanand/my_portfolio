@@ -83,7 +83,7 @@ const Navbar = () => {
           className="font-heading text-2xl font-bold text-gold cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          Prabanand S C
+          Dr. Prabanand S C
         </motion.div>
 
         {/* Desktop Links */}

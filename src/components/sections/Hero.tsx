@@ -194,7 +194,7 @@ const Hero = () => {
                <div className="absolute inset-0 w-full" style={{ height: '280%', top: '0%' }}>
                   <Image
                     src="/my_portfolio/images/IMG_20260410_111837.jpg.jpeg"
-                    alt="Prabanand S C"
+                    alt="Dr. Prabanand S C"
                     fill
                     priority
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
